@@ -2,7 +2,56 @@ package net.runelite.client.plugins.microbot.example;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
+import net.runelite.client.config.ConfigItem;
+import net.runelite.client.config.ConfigSection;
+import net.runelite.client.plugins.microbot.playerassist.enums.PlayStyle;
+import net.runelite.client.plugins.microbot.util.inventory.DropOrder;
 
 @ConfigGroup("example")
 public interface ExampleConfig extends Config {
+    String GROUP = "BarbarianFishing";
+
+    @ConfigSection(
+            name = "General",
+            description = "General",
+            position = 0,
+            closedByDefault = false
+    )
+    String generalSection = "general";
+
+    @ConfigItem(
+            keyName = "GUIDE",
+            name = "GUIDE",
+            description = "GUIDE",
+            position = 0,
+            section = generalSection
+    )
+    default String GUIDE() {
+        return "This plugin (is a test example plugin) allows for fully automated barbarian fishing at Otto's Grotto. \n\n" +
+                "To use this plugin, simply start the script at Otto's Grotto with a Barbarian rod and feathers in your inventory.";
+    }
+
+    // drop order
+    @ConfigItem(
+            keyName = "dropOrder",
+            name = "Drop Order",
+            description = "The order in which to drop items",
+            position = 1,
+            section = generalSection
+    )
+    default DropOrder dropOrder() {
+        return DropOrder.STANDARD;
+    }
+
+    // play style
+    @ConfigItem(
+            keyName = "playStyle",
+            name = "Play Style",
+            description = "The play style to use",
+            position = 2,
+            section = generalSection
+    )
+    default PlayStyle playStyle() {
+        return PlayStyle.AGGRESSIVE;
+    }
 }

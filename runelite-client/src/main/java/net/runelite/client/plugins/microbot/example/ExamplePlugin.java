@@ -13,9 +13,9 @@ import javax.inject.Inject;
 import java.awt.*;
 
 @PluginDescriptor(
-        name = PluginDescriptor.Default + "Example",
-        description = "Microbot example plugin",
-        tags = {"example", "microbot"},
+        name = PluginDescriptor.Default + "Example Test",
+        description = "Barbarian village fish and cooking script.",
+        tags = {"fishing", "microbot", "barbarian", "village"},
         enabledByDefault = false
 )
 @Slf4j
